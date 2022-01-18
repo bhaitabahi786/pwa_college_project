@@ -1,5 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
 
 h2{
 	color: #00796b;
@@ -10,6 +12,7 @@ h2{
 blockquote{
 	border-color: #5d32ac !important;
 }
+
 
 /* .secondary-content {
     float: right;
