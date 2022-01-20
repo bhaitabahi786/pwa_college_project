@@ -1,3 +1,7 @@
+<?php
+include_once 'backend/config.php';
+include('navbar_common.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,6 +10,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Toolkits</title>
+
+  <link rel="manifest" href="manifest.json">
+  <script src="js/app.js"></script>
+
   <!-- favicon here  -->
   <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
   <!-- styles import -->
@@ -26,70 +34,43 @@
 
 <body>
 
-  <section class="navbar">
-
-    <div class="navbar-fixed">
-      <nav>
-        <div class="nav-wrapper  teal darken-2">
-          <a href="#" class="brand-logo">
-            <img src="assets/main-logo/Frame 3.png" alt="brand-logo" id="logo"></a>
-          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-          <ul id="nav" class="right hide-on-med-and-down">
-            <li><a href="#" onclick="toggleModal();">How to use</a></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">All Featues</a></li>
-            <li><a href="#">Favorites</a></li>
-            <!-- Dropdown Trigger -->
-            <li><a class="dropdown-trigger hoverable" href="#!" data-target="dropdown1">&nbsp;
-                <i class="material-icons right">more_vert</i></a></li>
-            <!-- login button -->
-            <li><a href="login_reg_page/login_page.html" class="waves-effect waves-light deep-purple darken-3 btn hoverable">
-                <i class="material-icons left">account_circle</i>Login/Sign up</a>
-            </li>
-            <!-- light/dark mode toggle button in nav bar  -->
-            <!-- <li><a href="#" class="btn-floating btn-small waves-effect waves-light  light-blue accent-4">
-            <i class="material-icons left">brightness_4</i></a>
-          </li> -->
-
-          </ul>
-          <!-- dropdown menus -->
-          <ul id="dropdown1" class="dropdown-content">
-            <li><a href="#!">Disclamer</a></li>
-            <li><a href="#!">Contact Us</a></li>
-            <li><a href="#!">Privacy Policy</a></li>
-            <li><a href="#!">Terms & Conditions</a></li>
-          </ul>
-
-        </div>
-      </nav>
-    </div>
-    <!-- Here is the Mobile side navbar   -->
-    <ul class="sidenav" id="mobile-demo">
-      <!-- login button -->
-      <li><a href="login_reg_page/login_page.html" class="waves-effect waves-light deep-purple darken-3 btn-large z-depth-2">
-          <i class="material-icons  left">account_circle</i>Login/Sign Up</a></li>
-      <li><a href="#" onclick="toggleModal();">How to use</a></li>
-      <li><a href="#">About us</a></li>
-      <li><a href="#">All Featues</a></li>
-      <li><a href="#">Favorites</a></li>
-      <li><a href="#!">Disclamer</a></li>
-      <li><a href="#!">Contact Us</a></li>
-      <li><a href="#!">Privacy Policy</a></li>
-      <li><a href="#!">Terms & Conditions</a></li>
-      <!-- light/dark mode toggle button  in side nav bar  -->
-      <!-- <li><a href="#" class="btn-floating btn-small waves-effect waves-light  light-blue accent-4">
-      <i class="material-icons left">brightness_4</i></a>
-    </li> -->
-
-    </ul>
-
-  </section>
-
-
   <!-- all tools lists -->
   <section class="tools">
 
     <!-- tool 1 -->
+    <?php
+    if (!isset($_SESSION['login'])){
+    ?>
+
+<div class="row" style="padding-left: 30px; padding-right: 30px;">
+      <section class="tool-catogries center">
+        <h3>Tools Section 1</h3>
+        <hr>
+      </section>
+      <div class="col s12 m6 l3" style="padding: 65px 35px;">
+        <div class="card hoverable">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="https://img.icons8.com/material/100/000000/file--v2.png">
+          </div>
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4"> u are not logged in
+              <i class="material-icons right">more_vert</i>
+            </span><p><a href="tools/todo_php/todo_index.php">Click to open</a></p>
+
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Tool name 1<i class="material-icons right">close</i></span>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, necessitatibus.</p>
+          </div>
+        </div>
+      </div>
+
+      <?php 
+          }
+            else 
+              {
+              ?>
+
     <div class="row" style="padding-left: 30px; padding-right: 30px;">
       <section class="tool-catogries center">
         <h3>Tools Section 1</h3>
@@ -101,9 +82,9 @@
             <img class="activator" src="https://img.icons8.com/material/100/000000/file--v2.png">
           </div>
           <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4">Tool name 1
+            <span class="card-title activator grey-text text-darken-4"> To do list php based
               <i class="material-icons right">more_vert</i>
-            </span><p><a href="#">Click to open</a></p>
+            </span><p><a href="tools/todo_php/todo_index.php">Click to open</a></p>
 
           </div>
           <div class="card-reveal">
@@ -113,6 +94,10 @@
         </div>
       </div>
 
+      <?php
+              }
+                ?>
+
       <!-- next tool 2-->
       <div class="col s12 m6 l3" style="padding: 65px 35px;">
         <div class="card hoverable">
@@ -120,9 +105,9 @@
             <img class="activator" src="https://img.icons8.com/material-sharp/100/000000/ok--v2.png">
           </div>
           <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4">Tool Name 2
+            <span class="card-title activator grey-text text-darken-4">expense php
               <i class="material-icons right">more_vert</i>
-            </span><p><a href="#">Click to open</a></p>
+            </span><p><a href="tools/expense_php/expense-cal.php">Click to open</a></p>
 
           </div>
           <div class="card-reveal">

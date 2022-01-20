@@ -1,23 +1,9 @@
 <?php
-session_start();
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "project";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $database);
-
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-
-// echo "connected";
+include_once 'config.php';
 
 if (isset($_SESSION['login'])){
-  echo $_SESSION['login'];
+  echo 'session';
+  die();
 }
 
 
@@ -46,11 +32,13 @@ if(isset($_POST['login'])){
   if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-      echo "id: " . $row["id"];
-      $_SESSION['login'] = $row["username"];
+      $_SESSION['login'] = $row["id"];
+      echo 'true';
+      return true;
     }
   } else {
-    echo "0 results";
+    echo 'false';
+    return false;
   }
 
 }

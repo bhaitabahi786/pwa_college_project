@@ -1,7 +1,62 @@
+<?php
+include_once 'config.php';
+
+if(isset($_POST['forgot']))
+{
+    $user_email = $_POST['email'];
+    $result = mysqli_query($conn,"SELECT * FROM users WHERE email ='".$_POST['email']."'");
+    $row = mysqli_fetch_assoc($result);
+	$fetch_user_name =$row['username'];
+	$email_id =$row['email'];
+	$password =$row['password'];
+    // echo "problem";
+	if($user_email===$email_id) {
+                echo "email sending";
+				$to = $email_id;
+                $subject = "Password";
+                $txt = "Your password is : $password.";
+                $headers = "From: password@studentstutorial.com" . "\r\n" .
+                "CC: somebodyelse@example.com";
+                mail($to,$subject,$txt,$headers);
+			}
+				else{
+					echo 'invalid email id';
+				}
+}
+?>
+
+<!-- <!DOCTYPE HTML>
+<html>
+<head>
+<style type="text/css">
+ input{
+ border:1px solid olive;
+ border-radius:5px;
+ }
+ h1{
+  color:darkgreen;
+  font-size:22px;
+  text-align:center;
+ }
+
+</style>
+</head>
+<body>
+<h1>Forgot Password<h1>
+<form action='' method='post'>
+<table cellspacing='5' align='center'>
+<tr><td>user id:</td><td><input type='text' name='email'/></td></tr>
+<tr><td></td><td><input type='submit' name='forgot' value='Submit'/></td></tr>
+</table>
+</form>
+</body>
+</html> -->
+
+
 <html>
 
 <head>
-  <link rel="stylesheet" href="com_style.css">
+  <link rel="stylesheet" href="../login_reg_page/com_style.css">
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -91,14 +146,14 @@
     <center>
       <div class="section"></div>
 
-      <h3 class="indigo-text">login into your account</h3>
+      <h3 class="indigo-text"> Enter your Registered Email ID </h3>
       <div class="section"></div>
 
       <div class="container">
         <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
             <h1 id ="alert_msg"></h1>
           <!-- <form class="col s12" action="../backend/regis.php" method="POST" autocomplete="off"> -->
-            <form class="col s12" autocomplete="off">
+            <form class="col s12" action = '' autocomplete="off" method="POST">
             <div class='row'>
               <div class='col s12'>
               </div>
@@ -106,31 +161,21 @@
 
             <div class='row'>
               <div class='input-field col s12'>
-                <input class='validate' type='text' name='username' id='username' />
-                <label for='username'>Enter your username</label>
+                <input class='validate' type='email' name='email' id='username' />
+                <label for='username'>Enter your email id</label>
               </div>
-            </div>
-
-            <div class='row'>
-              <div class='input-field col s12'>
-                <input class='validate' type='password' name='password' id='password' />
-                <label for='password'>Enter your password</label>
-              </div>
-              <label style='float: right;'>
-								<a class='pink-text' href='../backend/forget_pass.php'><b>Forgot Password?</b></a>
-							</label>
             </div>
 
             <br />
             <center>
               <div class='row'>
-                <button type='submit' name='login' id='login' class='col s12 btn btn-large waves-effect indigo'>Login</button>
+                <button type='submit' name='forgot' class='col s12 btn btn-large waves-effect indigo'>Submit</button>
               </div>
             </center>
           </form>
         </div>
       </div>
-      <a href="reg_page.html">Create account</a>
+      
     </center>
 
     <div class="section"></div>
@@ -160,7 +205,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script>
+    <!-- <script>
     $.ajax({
         type: "POST",
         url: "../backend/check_login.php",
@@ -178,9 +223,10 @@
 
     });
 
-    </script>
+    </script> -->
   <script src="../js/script.js"></script>
 
 </body>
 
 </html>
+
