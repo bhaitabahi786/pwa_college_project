@@ -96,9 +96,16 @@
       <div class="container">
         <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
 
-          <form class="col s12" action="../backend/regis.php" method="POST" autocomplete="off" >
+          <!-- <form class="col s12" action="../backend/regis.php" method="POST" autocomplete="off" > -->
+            <form class="col s12" autocomplete="off" >
             <div class='row'>
               <div class='col s12'>
+              </div>
+            </div>
+
+            <div class='row'>
+              <div class='input-field col s12'>
+                <p id="alert_msg" > </p>
               </div>
             </div>
 
@@ -129,7 +136,7 @@
             <br />
             <center>
               <div class='row'>
-                <button type="submit" name="create" class='col s12 btn btn-large waves-effect indigo'>create</button>
+                <button type="submit" name="create" id= "create" class='col s12 btn btn-large waves-effect indigo'>create</button>
               </div>
             </center>
           </form>
@@ -165,6 +172,44 @@
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="../js/script.js"></script>
+  <script>
+
+    $('#create').click(function (e) {
+    // e wount reload the page
+    e.preventDefault();
+    username = document.getElementById('username').value;
+    email = document.getElementById('email').value;
+    password = document.getElementById('password').value;
+    var delay = 2000;
+
+    $.ajax({
+        type: "POST",
+        url: "../backend/regis.php",
+        data: {
+            username: username,
+            email:email,
+            password: password,
+            create: true
+        },
+        success: function (response) {
+            if(response == 'true') {
+                $('#alert_msg').html('success');
+                $('#alert_msg').css('color','green');
+                window.location.replace("login_page.html");
+
+            }else{
+                $('#alert_msg').html('username already created ');
+                $('#alert_msg').css('color','red');
+            }
+        },
+        beforeSend: function () {
+           
+        }
+
+    });
+
+});
+  </script>
 
 </body>
 

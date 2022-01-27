@@ -12,12 +12,24 @@ if(isset($_POST['create'])){
     $username = $_POST['username'];
     $email = $_POST['email'];
     $password = $_POST['password'];    
-    $sql = "INSERT INTO users (username, email, password) values ('".$username."','".$email."','".$password."')";
-    if ($conn->query($sql) === TRUE) {
-      echo "New record created successfully";
-    } else {
-      echo "Error: " . $sql . "<br>" . $conn->error;
+    // $sql = "INSERT INTO users (username, email, password) values ('".$username."','".$email."','".$password."')";
+    // $conn->query($sql);
+
+    $duplicate=mysqli_query($conn,"select * from users where username='$username' or email='$email'");
+
+    if (mysqli_num_rows($duplicate)>0)
+    {
+      echo 'false';
+      return false;
     }
+    else
+    {
+      
+      $sql = "INSERT INTO users (username, email, password) values ('".$username."','".$email."','".$password."')";
+      $conn->query($sql);
+      echo 'true';
+      return true;
+    } 
 
 }
 

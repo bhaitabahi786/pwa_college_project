@@ -53,9 +53,9 @@ include('navbar_common.php');
             <img class="activator" src="https://img.icons8.com/material/100/000000/file--v2.png">
           </div>
           <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4"> u are not logged in
+            <span class="card-title activator grey-text text-darken-4"> todo list not logged in
               <i class="material-icons right">more_vert</i>
-            </span><p><a href="tools/todo_php/todo_index.php">Click to open</a></p>
+            </span><p><a href="tools/to_do_list/todo-list.html">Click to open</a></p>
 
           </div>
           <div class="card-reveal">
@@ -82,7 +82,7 @@ include('navbar_common.php');
             <img class="activator" src="https://img.icons8.com/material/100/000000/file--v2.png">
           </div>
           <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4"> To do list php based
+            <span class="card-title activator grey-text text-darken-4"> To do list logged in
               <i class="material-icons right">more_vert</i>
             </span><p><a href="tools/todo_php/todo_index.php">Click to open</a></p>
 
@@ -116,6 +116,7 @@ include('navbar_common.php');
           </div>
         </div>
       </div>
+
       <!-- next tool 3-->
       <div class="col s12 m6 l3" style="padding: 65px 35px;">
         <div class="card hoverable">
@@ -123,9 +124,9 @@ include('navbar_common.php');
             <img class="activator" src="https://img.icons8.com/material-sharp/100/000000/settings.png">
           </div>
           <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4">Tool Name 3
+            <span class="card-title activator grey-text text-darken-4">qr code
               <i class="material-icons right">more_vert</i>
-            </span><p><a href="#">Click to open</a></p>
+            </span><p><a href="tools/qr_code/qrcode.php">Click to open</a></p>
 
           </div>
           <div class="card-reveal">
