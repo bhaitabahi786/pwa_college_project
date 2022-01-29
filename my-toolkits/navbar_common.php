@@ -42,7 +42,7 @@ include_once 'backend/config.php';
           <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
           <ul id="nav" class="right hide-on-med-and-down">
             <li><a href="#" onclick="toggleModal();">How to use</a></li>
-            <li><a href="pages/about-us.html">About us</a></li>
+            <li><a href="pages/about_us.html">About us</a></li>
             <li><a href="#">All Featues</a></li>
             <li><a href="#">Favorites</a></li>
             <!-- Dropdown Trigger -->
@@ -73,7 +73,7 @@ include_once 'backend/config.php';
           <!-- dropdown menus -->
           <ul id="dropdown1" class="dropdown-content">
             <li><a href="#!">Disclamer</a></li>
-            <li><a href="pages/about-us.html">About Us</a></li>
+            <li><a href="pages/about_us.html">About Us</a></li>
             <li><a href="#!">Privacy Policy</a></li>
             <li><a href="#!">Terms & Conditions</a></li>
           </ul>

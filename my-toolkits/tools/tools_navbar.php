@@ -1,7 +1,7 @@
 
 
 <?php
-include_once '../backend/config.php';
+include_once '../../backend/config.php';
 // include('../tools_navbar.php');
 ?>
 
@@ -43,7 +43,7 @@ include_once '../backend/config.php';
           <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
           <ul id="nav" class="right hide-on-med-and-down">
             <li><a href="#" onclick="toggleModal();">How to use</a></li>
-            <li><a href="#">About us</a></li>
+            <li><a href="../../pages/about_us.html">About us</a></li>
             <li><a href="#">All Featues</a></li>
             <li><a href="#">Favorites</a></li>
             <!-- Dropdown Trigger -->
@@ -74,7 +74,7 @@ include_once '../backend/config.php';
           <!-- dropdown menus -->
           <ul id="dropdown1" class="dropdown-content">
             <li><a href="#!">Disclamer</a></li>
-            <li><a href="#!">Contact Us</a></li>
+            <li><a href="../../pages/about_us.html">About Us</a></li>
             <li><a href="#!">Privacy Policy</a></li>
             <li><a href="#!">Terms & Conditions</a></li>
           </ul>
@@ -95,13 +95,13 @@ include_once '../backend/config.php';
               else 
               {
                 ?>
-                <li><a href="../../login_reg_page/login_page.html" class="waves-effect waves-light deep-purple darken-3 btn-large z-depth-2">
+                <li><a href="../../backend/user_page.php" class="waves-effect waves-light deep-purple darken-3 btn-large z-depth-2">
           <i class="material-icons  left">account_circle</i>My account</a></li>
           <?php
               }
                 ?>
       <li><a href="#" onclick="toggleModal();">How to use</a></li>
-      <li><a href="#">About us</a></li>
+      <li><a href="../../pages/about_us.html">About us</a></li>
       <li><a href="#">All Featues</a></li>
       <li><a href="#">Favorites</a></li>
       <li><a href="#!">Disclamer</a></li>

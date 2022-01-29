@@ -87,14 +87,6 @@ $delete = mysqli_query($conn,"SELECT * FROM tasks WHERE user_id = $user_session"
       <?php
       if (mysqli_num_rows($result) > 0) {
       ?>
-
-      <!-- <li class="collection-item">
-        <i class="material-icons deep-purple-text text-darken-3 left">description</i>
-        <div > Complete all the task
-          <a href="#!" class="secondary-content">
-            <i class="material-icons red-text cdel" id=" ">delete_forever</i>
-          </a>
-        </li> -->
         
         <?php
         $i=0;

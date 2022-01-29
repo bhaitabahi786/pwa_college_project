@@ -12,13 +12,13 @@ if(isset($_POST['add'])){
   $category = $_POST['category'];
   $user_id = $_SESSION['login'];
   $sql = "INSERT INTO exp_tool (date, income, expense, category, user_id) values ('".$newDate."','".$income."','".$expense."','".$category."','".$user_id."')";
-  // $conn->query($sql);
+  $conn->query($sql);
   // echo $sql;
-  if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
-  } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-  }
+  // if ($conn->query($sql) === TRUE) {
+  //   echo "New record created successfully";
+  // } else {
+  //   echo "Error: " . $sql . "<br>" . $conn->error;
+  // }
   
 }
 
@@ -40,28 +40,11 @@ $total_exp += $row["expense"];
 $i++;
 }
 
-// echo $total_income;
-// echo $total_exp;
+
 $balance = $total_income - $total_exp;
 // echo $balance;
 }
-// echo $total_income;
 
-// $count_exp = count($row["expense"]);
-// foreach( $row["expense"] as $amt) {
-//         $total_exp += intval($amt);
-//  }
-
-//  echo $total_exp;
-
-// $balance = $total_income - $total_exp;
-
-// echo $balance;
-
-
-// $row_length = $count_inc > $count_exp ? $count_inc : $count_exp ;
-
-// $balance = $total_income - $total_exp;
 
 ?>
 
@@ -236,6 +219,9 @@ $balance = $total_income - $total_exp;
               <td><?php echo $row["income"]; ?></td>
               <td><?php echo $row["expense"]; ?></td>
               <td><?php echo $row["category"]; ?></td>
+              <td><a href="delete.php?task=<?php echo $row["id"]; ?>" >
+            <i class="material-icons red-text cdel" id=" ">delete_forever</i>
+          </a></td>
             </tr>
 
             <?php
