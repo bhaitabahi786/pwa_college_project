@@ -3,6 +3,7 @@ include_once 'config.php';
 
 if(isset($_POST['forgot']))
 {
+  // POST email param should be prepared
     $user_email = $_POST['email'];
     $result = mysqli_query($conn,"SELECT * FROM users WHERE email ='".$_POST['email']."'");
     $row = mysqli_fetch_assoc($result);

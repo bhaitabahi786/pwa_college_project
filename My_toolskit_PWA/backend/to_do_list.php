@@ -4,6 +4,7 @@ include_once 'config.php';
 if(isset($_POST['add'])){
     $note = $_POST['note'];
     $user_id = $_SESSION['login'];
+    // note param should be prepared
     $sql = "INSERT INTO tasks (user_id, task) values ('".$user_id."','".$note."')";
     // echo $sql;
     if ($conn->query($sql) === TRUE) {

@@ -9,6 +9,7 @@ if (isset($_SESSION['login'])){
 
 // SIgnup api endpoint send username and password parameter (POST method)
 if(isset($_POST['create'])){
+  // POST Username, email and password params need to be prepared
     $username = $_POST['username'];
     $email = $_POST['email'];
     $password = $_POST['password'];    
@@ -24,7 +25,7 @@ if(isset($_POST['create'])){
     }
     else
     {
-      
+    // POST Username, email and password params need to be prepared      
       $sql = "INSERT INTO users (username, email, password) values ('".$username."','".$email."','".$password."')";
       $conn->query($sql);
       echo 'true';
