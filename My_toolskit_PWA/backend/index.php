@@ -40,6 +40,8 @@ if (isset($_SESSION['login'])){
 
 // SIgnup api endpoint send username and password parameter (POST method)
 if(isset($_POST['create'])){
+
+  // POST Username and password params need to be prepared
     $username = $_POST['username'];
     $password = $_POST['password'];    
     $sql = "INSERT INTO users (username, password) values ('".$username."','".$password."')";
@@ -54,6 +56,8 @@ if(isset($_POST['create'])){
 
 // Login api endpoint send username and password parameter (POST method)
 if(isset($_POST['login'])){
+  // POST Username and password params need to be prepared
+
   $username = $_POST['username'];
   $password = $_POST['password'];    
   $sql = "select * from users where username = '".$username."' and password = '".$password."'";
